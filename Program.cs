@@ -26,5 +26,6 @@ Console.WriteLine($"Seja Bem vindo {name}");
 Console.WriteLine("Selecione sua classe:");
 
 
-Console.ReadLine();
+// Console.WriteLine("Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
+// Combat.DrawTable(Console.ReadLine());
 
