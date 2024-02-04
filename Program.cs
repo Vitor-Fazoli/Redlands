@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Redlands;
+using Redlands.Content;
 using Redlands.Entities;
 
 Helper.InitialConfiguration();
@@ -20,12 +21,16 @@ Helper.WriteText(sb.ToString());
 Console.WriteLine("Escolha o nome do seu personagem:");
 string? name = Console.ReadLine();
 
+if (name is null)
+{
+    Console.WriteLine("O Nome não pode estar em branco, Escolha o nome do seu personagem:");
+    name = Console.ReadLine();
+}
+
 Console.Clear();
 
-Console.WriteLine($"Seja Bem vindo {name}");
-Console.WriteLine("Selecione sua classe:");
-
-
-// Console.WriteLine("Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
-// Combat.DrawTable(Console.ReadLine());
+Console.WriteLine($"Por favor {name}, Selecione sua classe:");
+Console.WriteLine("1 - Encouraçado");
+Console.WriteLine("2 - Fungomante");
+string? profissão = Console.ReadLine();
 

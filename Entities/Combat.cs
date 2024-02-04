@@ -1,14 +1,30 @@
 namespace Redlands.Entities
 {
-    public static class Combat//(Character hero, Character enemy)
+    public static class Combat
     {
-        //public bool isInCombat = true;
-
-        public static void DrawTable(string position)
+        private readonly static int Turn = 1;
+        private readonly static string[,] table = new string[3, 3];
+        public static void OnCombatProgress()
         {
+            Console.WriteLine("Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
+            try
+            {
+                DrawTable(Console.ReadLine(), table);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                DrawTable(Console.ReadLine(), table);
+            }
+        }
+
+        public static string[,] DrawTable(string position, string[,] table)
+        {
+            Console.Clear();
+
             if (position.Length > 2 || position.Length < 2)
             {
-                throw new Exception("Invalid position");
+                throw new Exception("Posição invalida, tente novamente.\n Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
             }
             else
             {
@@ -22,18 +38,17 @@ namespace Redlands.Entities
                         'A' => 0,
                         'B' => 1,
                         'C' => 2,
-                        _ => throw new Exception("Invalid row"),
+                        _ => throw new Exception("Linha escolhida invalida, tente novamente."),
                     },
                     column switch
                     {
                         '1' => 0,
                         '2' => 1,
                         '3' => 2,
-                        _ => throw new Exception("Invalid column"),
+                        _ => throw new Exception("Coluna escolhida invalida, tente novamente."),
                     },
                 ];
 
-                string[,] table = new string[3, 3];
                 const int SIZE = 3;
 
                 for (int i = 0; i < SIZE; i++)
@@ -46,13 +61,9 @@ namespace Redlands.Entities
                         }
                         else
                         {
-                            try
+                            if (table[i, j] != "o")
                             {
-
                                 table[i, j] = " ";
-                            }
-                            catch (Exception)
-                            {
                             }
                         }
                     }
@@ -67,7 +78,12 @@ namespace Redlands.Entities
                 Console.WriteLine($"|---+---+---+---+");
                 Console.WriteLine($"| c | {table[0, 2]} | {table[1, 2]} | {table[2, 2]} |");
                 Console.WriteLine($"+---+---+---+---+");
+                return table;
             }
+        }
+        public static void DoAction(string[,] Table, Character character)
+        {
+
         }
     }
 }

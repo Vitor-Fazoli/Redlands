@@ -1,8 +1,9 @@
-namespace Redlands.Interfaces {
+namespace Redlands.Interfaces
+{
     public interface IProfession
     {
-        public string Name { get; set; }
-        public int [][,] CollectionActions { get; set; }
+        public string Name { get; }
+        public Action[] CollectionActions { get; }
 
     }
 }
