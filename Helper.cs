@@ -1,3 +1,5 @@
+using Redlands.Common;
+
 namespace Redlands
 {
     public static class Helper
@@ -15,13 +17,44 @@ namespace Redlands
             Console.WriteLine("|__|__|___|___|_____|__,|_|_|___|___|\n");
         }
 
-        public static void WriteText(string message)
+        public static void WriteSleepyText(string message)
         {
             for (int i = 0; i < message.Length; i++)
             {
-                Console.Write(message[i]);
+                if(message[i] == '.'){
+                    Console.WriteLine(".");
+                }else{
+                    Console.Write(message[i]);
+                }
                 Thread.Sleep(50);
             }
         }
+        public static void WriteMenu(string Text,List<Option> options, Option selectedOption)
+        {
+            Console.Clear();
+            Console.WriteLine(Text);
+            foreach (Option option in options)
+            {
+                if (option == selectedOption)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+
+                Console.WriteLine(option.Name);
+            }
+        }
+
+        // public string Menu(string text,string[] options){
+        //     Console.WriteLine(text);
+
+        //     Console.ReadKey();
+
+
+
+        // }
     }
 }
