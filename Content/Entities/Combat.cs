@@ -1,11 +1,14 @@
+using Redlands.Abstract;
+
 namespace Redlands.Entities
 {
     public static class Combat
     {
         private readonly static int Turn = 1;
         private readonly static string[,] table = new string[3, 3];
-        public static void OnCombatProgress()
+        public static void OnCombatProgress(Entity player, Entity enemy)
         {
+            player.ToString();
             Console.WriteLine("Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
             try
             {

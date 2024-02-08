@@ -47,14 +47,5 @@ namespace Redlands
                 Console.WriteLine(option.Name);
             }
         }
-
-        // public string Menu(string text,string[] options){
-        //     Console.WriteLine(text);
-
-        //     Console.ReadKey();
-
-
-
-        // }
     }
 }
