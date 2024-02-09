@@ -1,7 +1,9 @@
 using System.Text;
 
-namespace Redlands.Abstract {
-    public class Entity {
+namespace Redlands.Abstract
+{
+    public class Entity
+    {
         public const int ATRTIBUTE_POINTS = 6;
         public const int SIZE = 3;
 
@@ -27,51 +29,72 @@ namespace Redlands.Abstract {
 
         //Ataques
         public List<string[,]> Attacks = [];
-    
-        public Entity(string name, int resilience, int virtue, int agility){
-            table = new string[,]{ { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
 
-            Attacks.Add(new string[,]{ { " ", "o", " " }, { " ", "o", " " }, { " ", "o", " " } });
+        public Entity(string name, int resilience, int virtue, int agility)
+        {
+            table = new string[,] { { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
 
-            if(resilience+virtue+agility > ATRTIBUTE_POINTS){
+            Attacks.Add(new string[,] { { " ", "o", " " }, { " ", "o", " " }, { " ", "o", " " } });
+
+            if (resilience + virtue + agility > ATRTIBUTE_POINTS)
+            {
                 throw new Exception("A quantidade maxima de atributos foi ultrapassada");
-            }else{
+            }
+            else
+            {
                 this.name = name;
                 this.resilience = resilience;
                 this.agility = agility;
                 this.virtue = virtue;
             }
         }
-        public void Hurt(int amount){
-            if(life <= 0){
+        public void Hurt(int amount)
+        {
+            if (life <= 0)
+            {
                 life = 0;
                 dead = true;
-            }else{
+            }
+            else
+            {
                 life -= amount - defense;
             }
         }
-        protected void SetAgility(int agility){
-            if(agility <= 6){
+        protected void SetAgility(int agility)
+        {
+            if (agility <= 6)
+            {
                 this.agility = agility;
-            }else{
+            }
+            else
+            {
                 throw new Exception("Não pode alocar mais do que a quantidade maxima de pontos");
             }
         }
-        protected void SetVirtue(int virtue){
-            if(virtue <= 6){
+        protected void SetVirtue(int virtue)
+        {
+            if (virtue <= 6)
+            {
                 this.virtue = virtue;
-            }else{
+            }
+            else
+            {
                 throw new Exception("Não pode alocar mais do que a quantidade maxima de pontos");
             }
         }
-        protected void SetResilience(int resilience){
-            if(resilience <= 6){
+        protected void SetResilience(int resilience)
+        {
+            if (resilience <= 6)
+            {
                 this.resilience = resilience;
-            }else{
+            }
+            else
+            {
                 throw new Exception("Não pode alocar mais do que a quantidade maxima de pontos");
             }
         }
-        public void SetDefault(){
+        public void SetDefault()
+        {
             lifeMax = 1 + (virtue * 2) + resilience;
             life = lifeMax;
             defense = resilience / 2;
@@ -135,10 +158,16 @@ namespace Redlands.Abstract {
             {
                 for (int j = 0; j < SIZE; j++)
                 {
-                    if(table[i,j] == Attacks[0][i,j]){
-                        continue;
-                    }else{
-                        return false;
+                    if (Attacks[0][i, j] == "o")
+                    {
+                        if (table[i, j] == Attacks[0][i, j])
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 }
             }
@@ -147,8 +176,9 @@ namespace Redlands.Abstract {
             return true;
         }
 
-        protected void ResetTable(){
-            table = new string[,]{ { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
+        protected void ResetTable()
+        {
+            table = new string[,] { { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
         }
 
         public override string ToString()
