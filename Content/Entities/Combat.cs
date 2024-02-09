@@ -4,89 +4,73 @@ namespace Redlands.Entities
 {
     public static class Combat
     {
-        private readonly static int Turn = 1;
-        private readonly static string[,] table = new string[3, 3];
+        private static int Turn = 1;
+
+        public static void OnCombatInit(Entity player, Entity enemy){
+
+
+            OnCombatProgress(player, enemy);
+        }
+
         public static void OnCombatProgress(Entity player, Entity enemy)
         {
-            player.ToString();
-            Console.WriteLine("Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
-            try
+            while(player.life > 0 || enemy.life > 0)
             {
-                DrawTable(Console.ReadLine(), table);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                DrawTable(Console.ReadLine(), table);
-            }
-        }
-
-        public static string[,] DrawTable(string position, string[,] table)
-        {
-            Console.Clear();
-
-            if (position.Length > 2 || position.Length < 2)
-            {
-                throw new Exception("Posição invalida, tente novamente.\n Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
-            }
-            else
-            {
-                char row = position[0];
-                char column = position[1];
-
-                int[] result =
-                [
-                    row switch
-                    {
-                        'A' => 0,
-                        'B' => 1,
-                        'C' => 2,
-                        _ => throw new Exception("Linha escolhida invalida, tente novamente."),
-                    },
-                    column switch
-                    {
-                        '1' => 0,
-                        '2' => 1,
-                        '3' => 2,
-                        _ => throw new Exception("Coluna escolhida invalida, tente novamente."),
-                    },
-                ];
-
-                const int SIZE = 3;
-
-                for (int i = 0; i < SIZE; i++)
-                {
-                    for (int j = 0; j < SIZE; j++)
-                    {
-                        if (i == result[1] && j == result[0])
-                        {
-                            table[i, j] = "o";
-                        }
-                        else
-                        {
-                            if (table[i, j] != "o")
-                            {
-                                table[i, j] = " ";
-                            }
-                        }
-                    }
+                bool isRoundPlayer;
+                if(player.initiative > enemy.initiative && Turn == 1){
+                    isRoundPlayer = true;
+                }else{
+                    isRoundPlayer = false;
                 }
 
-                Console.WriteLine($"+---+---+---+---+");
-                Console.WriteLine($"|   | 1 | 2 | 3 |");
-                Console.WriteLine($"+---+---+---+---+");
-                Console.WriteLine($"| A | {table[0, 0]} | {table[1, 0]} | {table[2, 0]} |");
-                Console.WriteLine($"|---+---+---+---+");
-                Console.WriteLine($"| B | {table[0, 1]} | {table[1, 1]} | {table[2, 1]} |");
-                Console.WriteLine($"|---+---+---+---+");
-                Console.WriteLine($"| c | {table[0, 2]} | {table[1, 2]} | {table[2, 2]} |");
-                Console.WriteLine($"+---+---+---+---+");
-                return table;
+                if(isRoundPlayer is true){
+                    isRoundPlayer = false;
+                }else{
+                    isRoundPlayer = true;
+                }
+
+                DrawTable(player, enemy, isRoundPlayer);
             }
         }
-        public static void DoAction(string[,] Table, Character character)
-        {
 
+        public static void DrawTable(Entity player, Entity enemy, bool isPlayerRound){
+            if(Turn == 1){
+                Console.WriteLine("A batalha se inicia");
+            }
+            
+            Console.WriteLine($"+---+---+---+---+"                                                          + $" {enemy.name}                           ");
+            Console.WriteLine($"|   | 1 | 2 | 3 |"                                                          + $" Vida: {enemy.life}/{enemy.lifeMax}     ");
+            Console.WriteLine($"+---+---+---+---+"                                                          + $" Defesa: {enemy.defense}                ");
+            Console.WriteLine($"| A | {enemy.table[0, 0]} | {enemy.table[1, 0]} | {enemy.table[2, 0]} |"    + $" Iniciativa: {enemy.initiative}         ");
+            Console.WriteLine($"|---+---+---+---+"                                                          + $" Taxa Crítica: {enemy.criticalRate}     ");
+            Console.WriteLine($"| B | {enemy.table[0, 1]} | {enemy.table[1, 1]} | {enemy.table[2, 1]} |"    + $" Dano Crítico: {enemy.criticalDamage}   ");
+            Console.WriteLine($"|---+---+---+---+"                                                          + $"                                        ");
+            Console.WriteLine($"| c | {enemy.table[0, 2]} | {enemy.table[1, 2]} | {enemy.table[2, 2]} |"    + $"                                        ");
+            Console.WriteLine($"+---+---+---+---+"                                                          + $"                                        ");
+            Console.WriteLine("----------------------------------------------------------------");
+            Console.WriteLine($"+---+---+---+---+"                                                          + $" {player.name}                           ");
+            Console.WriteLine($"|   | 1 | 2 | 3 |"                                                          + $" Vida: {player.life}/{player.lifeMax}    ");
+            Console.WriteLine($"+---+---+---+---+"                                                          + $" Defesa: {player.defense}                ");
+            Console.WriteLine($"| A | {player.table[0, 0]} | {player.table[1, 0]} | {player.table[2, 0]} |" + $" Iniciativa: {player.initiative}         ");
+            Console.WriteLine($"|---+---+---+---+"                                                          + $" Taxa Crítica: {player.criticalRate}     ");
+            Console.WriteLine($"| B | {player.table[0, 1]} | {player.table[1, 1]} | {player.table[2, 1]} |" + $" Dano Crítico: {player.criticalDamage}   ");
+            Console.WriteLine($"|---+---+---+---+"                                                          + $"                                         ");
+            Console.WriteLine($"| c | {player.table[0, 2]} | {player.table[1, 2]} | {player.table[2, 2]} |" + $"                                         ");
+            Console.WriteLine($"+---+---+---+---+"                                                          + $"                                         ");
+
+            if(isPlayerRound){
+                Console.WriteLine("\n Coloque uma peça em campo");
+                player.PlacePiece(Console.ReadLine());
+
+                if(player.VerifyAttack()){
+                    enemy.life -= 1;
+                }
+            }else{
+                
+            }
+
+            Console.Clear();
+            Turn++;
         }
     }
 }

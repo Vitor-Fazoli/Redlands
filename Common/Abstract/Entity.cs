@@ -3,6 +3,7 @@ using System.Text;
 namespace Redlands.Abstract {
     public class Entity {
         public const int ATRTIBUTE_POINTS = 6;
+        public const int SIZE = 3;
 
         //Status
         public string name;
@@ -20,11 +21,18 @@ namespace Redlands.Abstract {
         public int virtue;
         public int resilience;
         public int agility;
+        public Profession profession;
+
+        public string[,] table;
 
         //Ataques
-        public int[][,] Attacks;
+        public List<string[,]> Attacks = [];
     
         public Entity(string name, int resilience, int virtue, int agility){
+            table = new string[,]{ { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
+
+            Attacks.Add(new string[,]{ { " ", "o", " " }, { " ", "o", " " }, { " ", "o", " " } });
+
             if(resilience+virtue+agility > ATRTIBUTE_POINTS){
                 throw new Exception("A quantidade maxima de atributos foi ultrapassada");
             }else{
@@ -70,6 +78,77 @@ namespace Redlands.Abstract {
             initiative = agility;
             criticalRate = 15 - virtue;
             criticalDamage = 1 + (agility / 3);
+        }
+
+        public string[,] PlacePiece(string position)
+        {
+            if (position.Length > 2 || position.Length < 2)
+            {
+                throw new Exception("Posição invalida, tente novamente.\n Escolha a posição da peça que deseja colocar (Ex: A1, B2, C3):");
+            }
+            else
+            {
+                char row = position[0];
+                char column = position[1];
+
+                int[] result =
+                [
+                    row switch
+                    {
+                        'A' => 0,
+                        'B' => 1,
+                        'C' => 2,
+                        _ => throw new Exception("Linha escolhida invalida, tente novamente."),
+                    },
+                    column switch
+                    {
+                        '1' => 0,
+                        '2' => 1,
+                        '3' => 2,
+                        _ => throw new Exception("Coluna escolhida invalida, tente novamente."),
+                    },
+                ];
+
+                for (int i = 0; i < SIZE; i++)
+                {
+                    for (int j = 0; j < SIZE; j++)
+                    {
+                        if (i == result[1] && j == result[0])
+                        {
+                            table[i, j] = "o";
+                        }
+                        else
+                        {
+                            if (table[i, j] != "o")
+                            {
+                                table[i, j] = " ";
+                            }
+                        }
+                    }
+                }
+                return table;
+            }
+        }
+        public bool VerifyAttack()
+        {
+            for (int i = 0; i < SIZE; i++)
+            {
+                for (int j = 0; j < SIZE; j++)
+                {
+                    if(table[i,j] == Attacks[0][i,j]){
+                        continue;
+                    }else{
+                        return false;
+                    }
+                }
+            }
+
+            ResetTable();
+            return true;
+        }
+
+        protected void ResetTable(){
+            table = new string[,]{ { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
         }
 
         public override string ToString()

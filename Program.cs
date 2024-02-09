@@ -42,9 +42,11 @@ StringBuilder sb = new();
 
 Entity accioli = new("Accioli", 0, 0, 6);
 accioli.SetDefault();
-Console.WriteLine(accioli.ToString());
-accioli.Hurt(1);
-Console.WriteLine(accioli.ToString());
+
+Entity inimigo = new("Inimigo do Accioli", 2, 2, 2);
+inimigo.SetDefault();
+
+Combat.OnCombatInit(accioli, inimigo);
 
 
 

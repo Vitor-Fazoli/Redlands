@@ -7,9 +7,9 @@ namespace Redlands
 
         public static void InitialConfiguration()
         {
-            Console.Title = "Redlands";
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Clear();
+            //Console.Title = "Redlands";
+            //Console.ForegroundColor = ConsoleColor.DarkRed;
+            //Console.Clear();
 
             Console.WriteLine(" _____       _ __              _     ");
             Console.WriteLine("| __  |___ _| |  |   ___ ___ _| |___ ");
