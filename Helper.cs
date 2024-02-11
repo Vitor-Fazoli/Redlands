@@ -7,44 +7,31 @@ namespace Redlands
 
         public static void InitialConfiguration()
         {
-            //Console.Title = "Redlands";
-            //Console.ForegroundColor = ConsoleColor.DarkRed;
-            //Console.Clear();
+            Console.Title = "Redlands";
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Clear();
 
             Console.WriteLine(" _____       _ __              _     ");
             Console.WriteLine("| __  |___ _| |  |   ___ ___ _| |___ ");
             Console.WriteLine("|    -| -_| . |  |__| .'|   | . |_ -|");
             Console.WriteLine("|__|__|___|___|_____|__,|_|_|___|___|\n");
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public static void WriteSleepyText(string message)
         {
             for (int i = 0; i < message.Length; i++)
             {
-                if(message[i] == '.'){
-                    Console.WriteLine(".");
-                }else{
-                    Console.Write(message[i]);
-                }
-                Thread.Sleep(50);
-            }
-        }
-        public static void WriteMenu(string Text,List<Option> options, Option selectedOption)
-        {
-            Console.Clear();
-            Console.WriteLine(Text);
-            foreach (Option option in options)
-            {
-                if (option == selectedOption)
+                if (message[i] == '.')
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(".");
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(message[i]);
                 }
-
-                Console.WriteLine(option.Name);
+                Thread.Sleep(50);
             }
         }
     }

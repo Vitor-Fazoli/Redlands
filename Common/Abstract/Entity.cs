@@ -17,7 +17,6 @@ namespace Redlands.Abstract
         public int criticalRate;
         public bool dead = false;
         public bool damageable = true;
-        public bool isFriendly = false;
 
         // Atributos
         public int virtue;

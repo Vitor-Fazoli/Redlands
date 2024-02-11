@@ -1,7 +1,8 @@
-namespace Redlands.Abstract {
+namespace Redlands.Abstract
+{
     public abstract class Profession()
     {
-       public string[][,] Actions = new string[3][,];
-       private static void GetAction(string command){}
+        public string[][,] Attack = new string[3][,];
+        private static void GetAction(string command) { }
     }
 }

@@ -74,14 +74,23 @@ namespace Redlands.Entities
                 {
                     enemy.life -= 1;
                 }
+
+                Console.Clear();
+                Turn++;
             }
             else
             {
+                Console.WriteLine("Aguardando a jogada do inimigo");
 
+                enemy.PlacePiece("A1");
+                if (enemy.VerifyAttack())
+                {
+                    player.life -= 1;
+                }
+
+                Console.Clear();
+                Turn++;
             }
-
-            Console.Clear();
-            Turn++;
         }
     }
 }

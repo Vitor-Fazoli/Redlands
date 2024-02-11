@@ -6,6 +6,45 @@ using Redlands.Abstract;
 
 Helper.InitialConfiguration();
 
+Console.Clear();
+Console.OutputEncoding = Encoding.UTF8;
+Console.CursorVisible = false;
+Console.WriteLine("\nUse as setas para navegar e pressione ENTER para selecionar:");
+(int left, int top) = Console.GetCursorPosition();
+var option = 1;
+var decorator = "-> ";
+ConsoleKeyInfo key;
+bool isSelected = false;
+
+while (!isSelected)
+{
+    Console.SetCursorPosition(left, top);
+
+    Console.WriteLine($"{(option == 1 ? decorator : "   ")}Iniciar");
+    Console.WriteLine($"{(option == 2 ? decorator : "   ")}Continue");
+    Console.WriteLine($"{(option == 3 ? decorator : "   ")}Exit");
+
+    key = Console.ReadKey(false);
+
+    switch (key.Key)
+    {
+        case ConsoleKey.UpArrow:
+            option = option == 1 ? 3 : option - 1;
+            break;
+
+        case ConsoleKey.DownArrow:
+            option = option == 3 ? 1 : option + 1;
+            break;
+
+        case ConsoleKey.Enter:
+            isSelected = true;
+            break;
+    }
+}
+
+Console.WriteLine($"\nVocê selecionou a opção: {option}");
+Console.ReadLine();
+
 StringBuilder sb = new();
 
 // sb.AppendLine("Em um mundo assolado por um fungo insidioso, que não apenas corrompe a carne, mas também semeia a agressividade desenfreada,");
