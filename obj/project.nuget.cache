@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xgwpy8126tu8FKsJBTuoSTc+3i7xtnRHXQNb4WeJWX1GzooljoZLWuo9bn/N0W5KfNGmgJaO2Z5LXZ+ZoCEZ3Q==",
+  "dgSpecHash": "9Uh7rSBh7R3FKAAHhBnEkDtlBEuA0LL3/eLOWPH3pXeVWJCB8g8sFJ/4qPYsFeHpJSdaA20XS5yas7b4tIo6CQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\vhfaz_tnsgsci\\Documents\\Projetos\\Redlands.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\vhfaz_tnsgsci\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

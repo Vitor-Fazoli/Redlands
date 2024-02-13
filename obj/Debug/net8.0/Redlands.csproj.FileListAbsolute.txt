@@ -42,3 +42,6 @@ C:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\obj\Debug\net8.0\refint\Red
 C:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\obj\Debug\net8.0\Redlands.pdb
 C:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\obj\Debug\net8.0\Redlands.genruntimeconfig.cache
 C:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\obj\Debug\net8.0\ref\Redlands.dll
+C:\Users\vhfaz_tnsgsci\Documents\Projetos\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\vhfaz_tnsgsci\Documents\Projetos\obj\Debug\net8.0\Redlands.csproj.AssemblyReference.cache
+C:\Users\vhfaz_tnsgsci\Documents\Projetos\obj\Debug\net8.0\Redlands.csproj.CopyComplete

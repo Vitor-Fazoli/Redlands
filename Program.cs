@@ -3,6 +3,7 @@ using Redlands.Common;
 using Redlands;
 using Redlands.Entities;
 using Redlands.Abstract;
+using Redlands.Common.System;
 
 Helper.InitialConfiguration();
 
@@ -78,15 +79,17 @@ StringBuilder sb = new();
 // Console.WriteLine("2 - Fungomante");
 // string? profissão = Console.ReadLine();
 
-
 Entity accioli = new("Accioli", 0, 0, 6);
 accioli.SetDefault();
 
-Entity inimigo = new("Inimigo do Accioli", 2, 2, 2);
-inimigo.SetDefault();
+// Entity inimigo = new("Inimigo do Accioli", 2, 2, 2);
+// inimigo.SetDefault();
 
-Combat.OnCombatInit(accioli, inimigo);
+// Combat.OnCombatInit(accioli, inimigo);
 
 
+Save.FindOrCreateBaseDirectory();
+Save.SaveEntity(accioli);
 
+Console.WriteLine(Save.LoadEntity(accioli).ToString());
 

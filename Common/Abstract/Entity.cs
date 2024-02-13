@@ -28,7 +28,10 @@ namespace Redlands.Abstract
 
         //Ataques
         public List<string[,]> Attacks = [];
+        public Entity()
+        {
 
+        }
         public Entity(string name, int resilience, int virtue, int agility)
         {
             table = new string[,] { { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
