@@ -37,26 +37,5 @@ namespace Redlands.Common.System
                 throw new Exception("Erro ao carregar entidade");
             }
         }
-        private static string Encrypt(string text)
-        {
-            byte[] bytesCriptografados = Convert.FromBase64String(text);
-            byte[] bytesChave = Encoding.UTF8.GetBytes(key);
-            using Aes aesAlg = Aes.Create();
-
-            aesAlg.Key = bytesChave;
-            aesAlg.IV = new byte[16]; // Pode ser gerado aleatoriamente e armazenado junto com o texto criptografado
-
-            ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-
-            using MemoryStream msDecrypt = new MemoryStream(bytesCriptografados);
-            using CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
-            using StreamReader srDecrypt = new StreamReader(csDecrypt);
-            return srDecrypt.ReadToEnd();
-        }
-        private static void Decrypt()
-        {
-
-        }
-
     }
 }

@@ -7,43 +7,46 @@ using Redlands.Common.System;
 
 Helper.InitialConfiguration();
 
-Console.Clear();
-Console.OutputEncoding = Encoding.UTF8;
-Console.CursorVisible = false;
-Console.WriteLine("\nUse as setas para navegar e pressione ENTER para selecionar:");
-(int left, int top) = Console.GetCursorPosition();
-var option = 1;
-var decorator = "-> ";
-ConsoleKeyInfo key;
-bool isSelected = false;
 
-while (!isSelected)
-{
-    Console.SetCursorPosition(left, top);
+//* menu
+// Console.Clear();
+// Console.OutputEncoding = Encoding.UTF8;
+// Console.CursorVisible = false;
+// Console.WriteLine("\nUse as setas para navegar e pressione ENTER para selecionar:");
+// (int left, int top) = Console.GetCursorPosition();
+// var option = 1;
+// var decorator = "-> ";
+// ConsoleKeyInfo key;
+// bool isSelected = false;
 
-    Console.WriteLine($"{(option == 1 ? decorator : "   ")}Iniciar");
-    Console.WriteLine($"{(option == 2 ? decorator : "   ")}Continue");
-    Console.WriteLine($"{(option == 3 ? decorator : "   ")}Exit");
+// while (!isSelected)
+// {
+//     Console.SetCursorPosition(left, top);
 
-    key = Console.ReadKey(false);
+//     Console.WriteLine($"{(option == 1 ? decorator : "   ")}Iniciar");
+//     Console.WriteLine($"{(option == 2 ? decorator : "   ")}Continue");
+//     Console.WriteLine($"{(option == 3 ? decorator : "   ")}Exit");
 
-    switch (key.Key)
-    {
-        case ConsoleKey.UpArrow:
-            option = option == 1 ? 3 : option - 1;
-            break;
+//     key = Console.ReadKey(false);
 
-        case ConsoleKey.DownArrow:
-            option = option == 3 ? 1 : option + 1;
-            break;
+//     switch (key.Key)
+//     {
+//         case ConsoleKey.UpArrow:
+//             option = option == 1 ? 3 : option - 1;
+//             break;
 
-        case ConsoleKey.Enter:
-            isSelected = true;
-            break;
-    }
-}
+//         case ConsoleKey.DownArrow:
+//             option = option == 3 ? 1 : option + 1;
+//             break;
 
-Console.WriteLine($"\nVocê selecionou a opção: {option}");
+//         case ConsoleKey.Enter:
+//             isSelected = true;
+//             break;
+//     }
+// }
+
+Console.WriteLine("Bem vindo ao Redlands, um jogo de aventura e sobrevivência em um mundo pós-apocalíptico.");
+
 Console.ReadLine();
 
 StringBuilder sb = new();
@@ -71,6 +74,20 @@ StringBuilder sb = new();
 //     Console.WriteLine("O Nome não pode estar em branco, Escolha o nome do seu personagem:");
 //     name = Console.ReadLine();
 // }
+
+//          +----------------------------------------------------------------------+
+//          | {entity.Name}              | Londrina  |                  EXPlorar   |
+//          +----------------------------------------------------------------------+
+//          |   INVentário  |                                                      |
+//          +---------------+                                                      |
+//          | p | p | p | p |                                                      |
+//          +---------------+                                                      |
+//          | p | p | p | p |                                                      |
+//          +---------------+                                                      |
+//          | p | p | p | p |                                                      |
+//          +---------------+                                                      |
+//          | p | p | p | p |                                                      |
+//          +----------------------------------------------------------------------+
 
 // Console.Clear();
 
