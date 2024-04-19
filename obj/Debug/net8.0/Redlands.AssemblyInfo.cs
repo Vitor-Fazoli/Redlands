@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Redlands")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aef62204f68cc4042da8a6343f8035ef997c9ab8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7a58a73b31046376085016212b08b534f73157c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Redlands")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Redlands")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,6 +8,8 @@ using Redlands.Common.System;
 Helper.InitialConfiguration();
 
 
+
+
 //* menu
 // Console.Clear();
 // Console.OutputEncoding = Encoding.UTF8;
@@ -68,6 +70,62 @@ StringBuilder sb = new();
 
 // Console.WriteLine("Escolha o nome do seu personagem:");
 // string? name = Console.ReadLine();
+
+/*
+    Aqui irei descrever o prologo, onde tudo vai se encaminhar para a história (Londrina, Brasil)
+
+    Depois das noticias, o mundo ficou abalado, todos começaram a correr em direção aos mercados, 
+    drogarias, postos de gasolina, virou um panico geral... 
+
+    Com o medo de que este fungo se espalhasse para humanos, havia muitas pessoas que não saiam de casa,
+    mas quando ele chegou, não havia mais tempo se esconder atrás de muros
+
+    As criaturas que vivem no brasil agora eram capazes de acabar com muros de casas, carros, dependendo até
+    mesmo prédios, mais de 60% da população no Brasil morreu, muitos pelos ataques, outros pela escassez de comidam
+    até mesmo conflitos entre pessoas por comida.
+
+    Você começa aí, muito caos nas ruas, milhares de mortos diariamente e muito ódio entre os sobreviventes
+
+    você está em um escritório fazendo uma entrevista de emprego...
+
+    Helena: Oi, tudo bem ? estamos muito interessados no seu perfil, depois de você ter feito a prova
+    ficamos bem confiantes de que nosso caminhos estão alinhados!
+
+
+    Agora, preciso fazer uma bateria de perguntas que talvez sejá um pouco desconfortavel
+
+
+    Resposta: Vai em frente | Ok | Não tem outro teste não!
+
+    Infelizmente, você precisa passar por esse processo, vou iniciar as perguntas beleza!
+
+    Você se chama [ nome aleatorio ], certo ?
+
+    Resposta: | Não | Sim |
+
+    Não: digite seu nome ?
+
+    Não: Nossa me desculpa, são muitos candidatos acabei me perdendo
+
+    Sim: Perfeito [ nome aleatorio ], minha memoria ainda está boa
+
+    Vamos lá, segunda pergunta: 
+    
+
+
+*/
+
+Console.WriteLine("Qual a idade do seu personagem:");
+string? age = Console.ReadLine();
+
+string sex;
+
+Console.WriteLine("Qual o sexo do seu personagem: M : F : S");
+
+
+
+
+
 
 // if (name is null)
 // {

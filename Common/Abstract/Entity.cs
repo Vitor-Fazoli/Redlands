@@ -2,9 +2,46 @@ using System.Text;
 
 namespace Redlands.Abstract
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Entity
     {
-        public const int ATRTIBUTE_POINTS = 6;
+        /*
+            Esta classe é a entidade
+
+            Ela é a classe mais abstrata de uma pessoa, inimigo ou aliado dentro do jogo
+
+            ela assim como os jogadores recebem atributos, equipamentos dentre outros
+        
+        
+        
+        
+        
+        
+        
+        
+        */
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ORIGIN_ATRIBUTE_POINTS = 12;
+
+
+        public const int LIFE_ATRIBUTE_POINTS_MAX = 100;
+        public int lifeAtrbutePoints;
+        public int lifeAtributePointsMax;
+
         public const int SIZE = 3;
 
         //Status
@@ -24,10 +61,11 @@ namespace Redlands.Abstract
         public int agility;
         public Profession profession;
 
+        /// <summary>
+        /// o campo onde é colocado as pedras para o combate
+        /// </summary>
         public string[,] table;
-
-        //Ataques
-        public List<string[,]> Attacks = [];
+        public List<string[,]> AbilitiesBook = [];
         public Entity()
         {
 
@@ -36,19 +74,8 @@ namespace Redlands.Abstract
         {
             table = new string[,] { { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
 
-            Attacks.Add(new string[,] { { " ", "o", " " }, { " ", "o", " " }, { " ", "o", " " } });
+            AbilitiesBook.Add(new string[,] { { " ", "o", " " }, { " ", "o", " " }, { " ", "o", " " } });
 
-            if (resilience + virtue + agility > ATRTIBUTE_POINTS)
-            {
-                throw new Exception("A quantidade maxima de atributos foi ultrapassada");
-            }
-            else
-            {
-                this.name = name;
-                this.resilience = resilience;
-                this.agility = agility;
-                this.virtue = virtue;
-            }
         }
         public void Hurt(int amount)
         {
@@ -160,9 +187,9 @@ namespace Redlands.Abstract
             {
                 for (int j = 0; j < SIZE; j++)
                 {
-                    if (Attacks[0][i, j] == "o")
+                    if (AbilitiesBook[0][i, j] == "o")
                     {
-                        if (table[i, j] == Attacks[0][i, j])
+                        if (table[i, j] == AbilitiesBook[0][i, j])
                         {
                             continue;
                         }
