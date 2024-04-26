@@ -75,7 +75,6 @@ namespace Redlands.Abstract
             table = new string[,] { { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
 
             AbilitiesBook.Add(new string[,] { { " ", "o", " " }, { " ", "o", " " }, { " ", "o", " " } });
-
         }
         public void Hurt(int amount)
         {

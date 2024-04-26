@@ -8,7 +8,7 @@ using Redlands.Common.System;
 Helper.InitialConfiguration();
 
 
-
+ConsoleExtras.CreateMenu("teste", "teste1", "teste2", "teste3");
 
 //* menu
 // Console.Clear();
@@ -47,9 +47,62 @@ Helper.InitialConfiguration();
 //     }
 // }
 
-Console.WriteLine("Bem vindo ao Redlands, um jogo de aventura e sobrevivência em um mundo pós-apocalíptico.");
+var supabase = await Helper.SupaBaseInitialize();
 
-Console.ReadLine();
+Console.WriteLine("Bem vindo ao Redlands, um jogo de aventura e sobrevivência em um mundo pós-apocalíptico.");
+bool isValid = false;
+string? loginInput;
+
+do
+{
+    Console.WriteLine("\nDigite 'L' para login ou 'C' para criar conta:");
+    loginInput = Console.ReadLine() ?? string.Empty;
+
+    if (loginInput.Equals("L", StringComparison.CurrentCultureIgnoreCase) || loginInput.Equals("C", StringComparison.CurrentCultureIgnoreCase))
+    {
+        isValid = true;
+    }
+    else
+    {
+        Console.WriteLine("Resposta inválida. Por favor, digite 'L' ou 'C'.");
+    }
+} while (!isValid);
+
+switch (loginInput)
+{
+    case "L":
+        break;
+    case "C":
+        Console.WriteLine("Digite o email no qual deseja realizar o cadastro: ");
+        string? email = Console.ReadLine() ?? string.Empty;
+
+        while (!email.Contains('@') || email == string.Empty)
+        {
+            Console.WriteLine("Email invalido, ou nulo");
+            Console.WriteLine("Digite o email no qual deseja realizar o cadastro: ");
+            Console.ReadLine();
+        }
+
+        Console.WriteLine("Digite sua senha (minimo 9 caracteres): ");
+        string? password = Auth.ReadPassword() ?? string.Empty;
+
+        while (password.Length < 9 || password == string.Empty)
+        {
+            Console.WriteLine("Senha muito curta, ou nulo");
+            Console.WriteLine("Digite sua senha (minimo 9 caracteres): ");
+            Auth.ReadPassword();
+        }
+
+        var session = await supabase.Auth.SignUp(email, password);
+
+        if (session != null)
+        {
+            Console.WriteLine("Usuário criado com sucesso");
+            Console.WriteLine("Antes de prosseguir ative sua conta, acessando seu email e clicando em confirmar");
+        }
+
+        break;
+}
 
 StringBuilder sb = new();
 
@@ -110,20 +163,23 @@ StringBuilder sb = new();
     Sim: Perfeito [ nome aleatorio ], minha memoria ainda está boa
 
     Vamos lá, segunda pergunta: 
-    
 
+    Em uma possível guerra, qual cargo você teria ?
 
+    Resposta: | Soldado | Médico | Engenheiro | Cientista |
+
+    Soldado: Entendi, você é uma pessoa que gosta de resolver as coisas na base da força
+
+    Médico: Entendi, você é uma pessoa que gosta de ajudar as pessoas
+
+    Engenheiro: Entendi, você é uma pessoa que gosta de resolver problemas
+
+    Cientista: Entendi, você é uma pessoa que gosta de descobrir coisas novas
+
+    Ok, vamos lá para uma ultima pergunta [ nome ], //TODO: pensar em uma pergunta
+
+    .//TODO: Finalizar o primeiro dialogo do jogo
 */
-
-Console.WriteLine("Qual a idade do seu personagem:");
-string? age = Console.ReadLine();
-
-string sex;
-
-Console.WriteLine("Qual o sexo do seu personagem: M : F : S");
-
-
-
 
 
 
