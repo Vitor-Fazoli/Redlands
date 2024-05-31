@@ -1,32 +1,31 @@
-﻿using System;
-using Spectre.Console;
+﻿using Microsoft.Extensions.Configuration;
+
+using Redlands.Application.Windows;
+using Redlands.Infrastructure;
+using Terminal.Gui;
 
 internal class Program
 {
-    private static void Main()
-    {
-        AnsiConsole.Prompt(
-            new TextPrompt<int>("How [green]old[/] are you?")
-            .PromptStyle("green")
-            .ValidationErrorMessage("[red]That's not a valid age[/]")
-            .Validate(age =>
-                {
-                    return age switch
-                    {
-                        <= 0 => ValidationResult.Error("[red]You must at least be 1 years old[/]"),
-                        >= 123 => ValidationResult.Error("[red]You must be younger than the oldest person alive[/]"),
-                        _ => ValidationResult.Success(),
-                    };
-                }
-            )
-        );
+    public static Supabase.Client? supabase;
+    public static Supabase.Gotrue.Session? session;
 
-        //Helper.RenderInitialScreen();
-        Console.ReadLine();
+    private static async Task Main()
+    {
+        Console.Title = "Redlands";
+
+        var config = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddEnvironmentVariables()
+            .Build();
+
+        supabase = await SupabaseConnection.Init(config) ?? throw new Exception("Supabase connection failed");
+
+        Application.Run<LoginWindow>();
+
+        Application.Shutdown();
     }
 }
-
-
 
 
 //* menu
@@ -66,7 +65,7 @@ internal class Program
 //     }
 // }
 
-// var supabase = await Helper.SupaBaseInitialize();
+// 
 
 // Console.WriteLine("Bem vindo ao Redlands, um jogo de aventura e sobrevivência em um mundo pós-apocalíptico.");
 // bool isValid = false;
