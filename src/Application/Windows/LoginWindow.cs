@@ -100,7 +100,7 @@ namespace Redlands.Application.Windows
                         ) ?? null;
 
                         MessageBox.Query("Login", "Successful", "Ok");
-                        //Terminal.Gui.Application.Run<LoginWindow>();
+                        Terminal.Gui.Application.Run<InitWindow>();
                     }
                     catch (Exception)
                     {
