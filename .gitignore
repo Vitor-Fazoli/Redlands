@@ -1,7 +1,0 @@
-/bin
-/obj
-/.vs
-/src/Infrastructure/SupabaseConnection.cs
-/src/bin
-/src/obj
-src/appsettings.json

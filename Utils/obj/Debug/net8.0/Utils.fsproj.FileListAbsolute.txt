@@ -1,0 +1,14 @@
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\bin\Debug\net8.0\Utils.deps.json
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\bin\Debug\net8.0\Utils.dll
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\bin\Debug\net8.0\Utils.pdb
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\bin\Debug\net8.0\Utils.xml
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.fsproj.AssemblyReference.cache
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.AssemblyInfoInputs.cache
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.AssemblyInfo.fs
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.fsproj.CoreCompileInputs.cache
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.sourcelink.json
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.dll
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\refint\Utils.dll
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.xml
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\Utils.pdb
+c:\Users\vhfaz\OneDrive\Documentos\Projetos\Redlands\Utils\obj\Debug\net8.0\ref\Utils.dll

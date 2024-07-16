@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AZL/dBIQImM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Redlands\\Core\\Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vhfaz\\.nuget\\packages\\fsharp.core\\8.0.300\\fsharp.core.8.0.300.nupkg.sha512"
+  ],
+  "logs": []
+}
